@@ -1,12 +1,17 @@
-import React from "react";
+import React, { use, useContext } from "react";
 import Hero from "../components/Hero";
 import Featured from "../components/Featured";
 import Loading from "../components/Loading";
 import OurServices from "../components/OurServices";
 import PromoSection from "../components/PromoSection";
 import FeaturedTask from "../components/FeaturedTask";
+import { AuthContext } from "../context/AuthContext";
 
 const Home = () => {
+  const { user } = use(AuthContext);
+
+  console.log(user);
+
   return (
     <div className="">
       <Hero />

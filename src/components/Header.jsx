@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { BiX } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
 import { HiBars3 } from "react-icons/hi2";
 import { navigation } from "../utils/data";
 import { NavLink } from "react-router";
+import useAuth from "../hooks/useAuth";
+import { AuthContext } from "../context/AuthContext";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const handleToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const { logout } = useAuth();
+  const { user, isloading } = use(AuthContext);
+
+  // console.log(logout);
+
   return (
-    <nav className="bg-white fixed top-0 z-20 w-full">
+    <nav className="bg-white fixed top-0 z-20 w-full border-b border-gray-200">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-0">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -41,33 +49,61 @@ const Header = () => {
 
           {/* destop nevigation menu */}
           <div className="hidden sm:ml-6 sm:block">
-            <div className="flex space-x-4">
-              {navigation.map((item) => (
-                <NavLink
-                  key={item.name}
-                  to={item.pathName}
-                  aria-current={item.current ? "page" : undefined}
-                  className={({ isActive }) =>
-                    `${
-                      isActive
-                        ? "bg-gray-50 text-black font-bold"
-                        : "text-black hover:bg-gray-50 "
-                    } block rounded-md px-3 py-2 text-base font-medium`
-                  }
-                >
-                  {item.name}
-                </NavLink>
-              ))}
-            </div>
+            {!isloading && (
+              <div className="flex space-x-4">
+                {navigation.slice(0, 4).map((item) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.pathName}
+                    aria-current={item.current ? "page" : undefined}
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-gray-50 text-black font-bold"
+                          : "text-black hover:bg-gray-50 "
+                      } block rounded-md px-3 py-2 text-base font-medium`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
+
+                {!user ? (
+                  navigation.slice(4).map((item, index) => (
+                    <NavLink
+                      key={index}
+                      to={item.pathName}
+                      aria-current={item.current ? "page" : undefined}
+                      className={({ isActive }) =>
+                        `${
+                          isActive
+                            ? "bg-gray-50 text-black font-bold"
+                            : "text-black hover:bg-gray-50 "
+                        } block rounded-md px-3 py-2 text-base font-medium`
+                      }
+                    >
+                      {item.name}
+                    </NavLink>
+                  ))
+                ) : (
+                  <div className="w-10 h-10 overflow-hidden rounded-full">
+                    <img
+                      src={user?.photoURL}
+                      alt={user?.photoURL}
+                      title={user?.photoURL}
+                    />
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
+              onClick={logout}
               className="relative rounded-full font-bold p-1 text-gray-700   focus:ring-offset-2   cursor-pointer outline"
             >
-              <span className="absolute -inset-1.5" />
-              <span className="sr-only">View notifications</span>
-              <BsBell aria-hidden="true" className="size-6" />
+              Logout
             </button>
           </div>
         </div>

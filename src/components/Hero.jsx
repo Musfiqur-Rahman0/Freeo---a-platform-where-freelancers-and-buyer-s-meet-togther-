@@ -55,7 +55,7 @@ const Hero = () => {
             <span>Trusted by : </span>
             <div className="flex items-center gap-3">
               {companies.map((company, index) => (
-                <p>{company}</p>
+                <p key={index}>{company}</p>
               ))}
               <div className="absolute right-0">
                 <button className="outline  rounded-full cursor-pointer">
