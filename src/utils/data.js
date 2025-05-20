@@ -1,3 +1,15 @@
+import {
+  FaCode,
+  FaPaintBrush,
+  FaBullhorn,
+  FaPenNib,
+  FaVideo,
+  FaRobot,
+  FaMusic,
+  FaBriefcase,
+  FaUserTie,
+} from "react-icons/fa";
+
 export const navigation = [
   { name: "Home", pathName: "/" },
   { name: "Add Task", pathName: "/add-task" },
@@ -5,4 +17,43 @@ export const navigation = [
   { name: "My Posted Tasks", pathName: "/my-tasks" },
   { name: "Login", pathName: "/login" },
   { name: "Signup", pathName: "/signup" },
+];
+
+export const featuredCategories = [
+  {
+    title: "Programming & Tech",
+    icon: FaCode,
+  },
+  {
+    title: "Graphics & Design",
+    icon: FaPaintBrush,
+  },
+  {
+    title: "Digital Marketing",
+    icon: FaBullhorn,
+  },
+  {
+    title: "Writing & Translation",
+    icon: FaPenNib,
+  },
+  {
+    title: "Video & Animation",
+    icon: FaVideo,
+  },
+  {
+    title: "AI Services",
+    icon: FaRobot,
+  },
+  {
+    title: "Music & Audio",
+    icon: FaMusic,
+  },
+  {
+    title: "Business",
+    icon: FaBriefcase,
+  },
+  {
+    title: "Consulting",
+    icon: FaUserTie,
+  },
 ];
