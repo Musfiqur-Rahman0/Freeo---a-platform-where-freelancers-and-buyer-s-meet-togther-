@@ -7,11 +7,15 @@ import Signup from "../pages/Signup";
 import MyTasks from "../pages/MyTasks";
 import AllTasks from "../pages/AllTasks";
 import AddTasks from "../pages/AddTasks";
+import Loading from "../components/Loading";
+import Errorpage from "../pages/Errorpage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    hydrateFallbackElement: <Loading />,
+    errorElement: <Errorpage />,
     children: [
       {
         index: true,
