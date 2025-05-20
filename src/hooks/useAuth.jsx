@@ -9,10 +9,13 @@ import { auth, googleProvider } from "../firebase/firebase.init";
 import { AuthContext } from "../context/AuthContext";
 import { use } from "react";
 import Swal from "sweetalert2";
+import { useLocation } from "react-router";
 
 const useAuth = () => {
   const { setIsLoading, setUser } = use(AuthContext);
 
+  const location = useLocation();
+  console.log(location);
   const signUp = async (email, password, first_name, photoURL, navigate) => {
     try {
       //   setIsLoading(true);

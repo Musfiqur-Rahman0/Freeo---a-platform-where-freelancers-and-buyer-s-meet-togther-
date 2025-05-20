@@ -9,6 +9,7 @@ import AllTasks from "../pages/AllTasks";
 import AddTasks from "../pages/AddTasks";
 import Loading from "../components/Loading";
 import Errorpage from "../pages/Errorpage";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-tasks",
-        Component: MyTasks,
+        element: (
+          <PrivetRoute>
+            <MyTasks />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/browse-tasks",
@@ -39,7 +44,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-task",
-        Component: AddTasks,
+        element: (
+          <PrivetRoute>
+            <AddTasks />
+          </PrivetRoute>
+        ),
       },
     ],
   },

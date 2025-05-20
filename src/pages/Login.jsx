@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import React, { use, useState } from "react";
 import loginAnimation from "../assets/loginAnimation.json";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import useAuth from "../hooks/useAuth";
 const style = {
@@ -14,6 +14,7 @@ const Login = () => {
   const { loginWithGoogle, login } = useAuth();
 
   const navigate = useNavigate();
+
   //   console.log(isloading, user);
   const handleLoginForm = (e) => {
     e.preventDefault();
