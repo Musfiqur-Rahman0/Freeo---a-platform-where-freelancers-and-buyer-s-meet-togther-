@@ -10,6 +10,8 @@ import AddTasks from "../pages/AddTasks";
 import Loading from "../components/Loading";
 import Errorpage from "../pages/Errorpage";
 import PrivetRoute from "./PrivetRoute";
+import TaskDetails from "../pages/TaskDetails";
+import AuthLayout from "../Layouts/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -20,18 +22,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        loader: () => fetch("https://microjob-server.vercel.app/recent-task"),
         Component: Home,
       },
       {
-        path: "/login",
-        Component: Login,
-      },
-      {
-        path: "/signup",
-        Component: Signup,
-      },
-      {
         path: "/my-tasks",
+
         element: (
           <PrivetRoute>
             <MyTasks />
@@ -40,7 +36,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/browse-tasks",
+        loader: () => fetch("https://microjob-server.vercel.app/tasks"),
         Component: AllTasks,
+      },
+      {
+        path: "/tasks/:id",
+        loader: ({ params }) =>
+          fetch(`https://microjob-server.vercel.app/tasks/${params.id}`),
+        Component: TaskDetails,
       },
       {
         path: "/add-task",
@@ -49,6 +52,20 @@ const router = createBrowserRouter([
             <AddTasks />
           </PrivetRoute>
         ),
+      },
+    ],
+  },
+  {
+    path: "/login",
+    Component: AuthLayout,
+    children: [
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/signup",
+        Component: Signup,
       },
     ],
   },

@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router";
 
 const PromoSection = () => {
   return (
     <div className="relative overflow-hidden bg-white">
-      <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-        <div className="relative mx-auto max-w-7xl  sm:static  ">
+      <div className="grid  md:grid-cols-2 gap-8 items-center  mx-auto max-w-7xl">
+        <div className=" flex flex-col items-center md:block text-center md:text-start ">
           <div className="sm:max-w-lg">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Made on Freeo
@@ -16,20 +17,46 @@ const PromoSection = () => {
           </div>
           <div>
             <div className="mt-10">
-              {/* Decorative image grid */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
-              ></div>
-
-              <a
-                // href="#"
-                className="inline-block rounded-md border border-transparent bg-black px-8 py-3 text-center font-medium text-white"
+              <Link
+                to={"/allTasks"}
+                className="inline-block text-white rounded-md bg-black px-8 py-3 text-center font-medium "
               >
-                Browse Tasks
-              </a>
+                Browse tasks
+              </Link>
             </div>
           </div>
+        </div>
+        <div className="columns-2 md:columns-3  space-y-5 justify-between">
+          <img
+            className="rounded-lg"
+            src="/src/assets/17352575-152b-453d-ad45-aaa817668241.jpeg"
+            alt=""
+          />
+          <img
+            className="rounded-lg"
+            src="/src/assets/9125ec81-ba28-4b70-81ee-af4f14e7085b.jpeg"
+            alt=""
+          />
+          <img
+            className="rounded-lg"
+            src="/src/assets/Adobe Illustrator Typography Poster Guide.jpeg"
+            alt=""
+          />
+          <img
+            className="rounded-lg"
+            src="/src/assets/c100ce76-f0fb-4da5-9f73-ca81efed4170.jpeg"
+            alt=""
+          />
+          <img
+            className="rounded-lg"
+            src="/src/assets/e5648414-d487-460d-aaf9-02eaebc550bb.jpeg"
+            alt=""
+          />
+          <img
+            className="rounded-lg"
+            src="/src/assets/fa570a9a-e922-4d19-969c-fcd747153d00.jpeg"
+            alt=""
+          />
         </div>
       </div>
     </div>

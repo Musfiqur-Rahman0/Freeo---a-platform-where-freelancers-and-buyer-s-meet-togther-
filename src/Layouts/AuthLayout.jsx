@@ -1,11 +1,11 @@
-import React, { use, useState } from "react";
-import Header from "../components/Header";
-import { Outlet } from "react-router";
-import Footer from "../components/Footer";
+import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Loading from "../components/Loading";
+import { Outlet } from "react-router";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
-const Root = () => {
+const AuthLayout = () => {
   const { isloading } = use(AuthContext);
   return (
     <>
@@ -14,7 +14,7 @@ const Root = () => {
       ) : (
         <>
           <Header />
-          <main className="mt-16 min-h-[calc(100vh-450px)] ">
+          <main className="mt-16 min-h-[calc(100vh-450px)] flex items-center justify-center">
             <Outlet />
           </main>
           <Footer />
@@ -24,4 +24,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default AuthLayout;
