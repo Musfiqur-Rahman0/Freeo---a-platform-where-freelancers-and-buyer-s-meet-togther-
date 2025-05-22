@@ -15,7 +15,7 @@ const useAuth = () => {
   const { setIsLoading, setUser } = use(AuthContext);
 
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const signUp = async (email, password, first_name, photoURL, navigate) => {
     try {
       //   setIsLoading(true);

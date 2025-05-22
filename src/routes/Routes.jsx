@@ -35,6 +35,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/signup",
+        Component: Signup,
+      },
+      {
         path: "/browse-tasks",
         loader: () => fetch("https://microjob-server.vercel.app/tasks"),
         Component: AllTasks,
@@ -52,20 +60,6 @@ const router = createBrowserRouter([
             <AddTasks />
           </PrivetRoute>
         ),
-      },
-    ],
-  },
-  {
-    path: "/login",
-    Component: AuthLayout,
-    children: [
-      {
-        path: "/login",
-        Component: Login,
-      },
-      {
-        path: "/signup",
-        Component: Signup,
       },
     ],
   },

@@ -27,7 +27,7 @@ const Login = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 max-w-7xl mx-auto items-center justify-center">
+    <div className="pt-20 grid grid-cols-2 max-w-7xl mx-auto items-center justify-center">
       <form
         onSubmit={handleLoginForm}
         className="w-full  flex flex-col items-center justify-center   h-full space-y-8"

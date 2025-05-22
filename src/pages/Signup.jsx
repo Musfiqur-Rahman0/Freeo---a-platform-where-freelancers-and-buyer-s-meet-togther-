@@ -26,7 +26,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 max-w-7xl mx-auto">
+    <div className="grid grid-cols-2 max-w-7xl mx-auto pt-20  ">
       <Lottie animationData={signupAnimation} style={style} />
 
       <form

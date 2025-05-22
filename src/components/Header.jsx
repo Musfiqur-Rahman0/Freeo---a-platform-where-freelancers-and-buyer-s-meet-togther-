@@ -6,6 +6,7 @@ import { navigation } from "../utils/data";
 import { NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,6 +18,25 @@ const Header = () => {
   const { user, isloading } = use(AuthContext);
 
   // console.log(logout);
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes ",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logout();
+        Swal.fire({
+          title: "Successfully loged out",
+          icon: "success",
+        });
+      }
+    });
+  };
 
   return (
     <nav className="bg-white fixed top-0 z-20 w-full border-b border-gray-200">
@@ -100,7 +120,7 @@ const Header = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
-              onClick={logout}
+              onClick={handleLogout}
               className="relative rounded-full font-bold p-1 text-gray-700   focus:ring-offset-2   cursor-pointer outline"
             >
               Logout

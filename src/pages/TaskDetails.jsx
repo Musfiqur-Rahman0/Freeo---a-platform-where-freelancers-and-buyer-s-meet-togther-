@@ -20,7 +20,7 @@ const TaskDetails = () => {
   const handleBid = (e) => {
     e.preventDefault();
 
-    console.log("submited");
+    // console.log("submited");
   };
 
   return (
