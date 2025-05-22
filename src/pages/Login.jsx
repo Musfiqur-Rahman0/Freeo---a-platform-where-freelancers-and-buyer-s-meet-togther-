@@ -33,7 +33,7 @@ const Login = () => {
         className="w-full  flex flex-col items-center justify-center   h-full space-y-8"
       >
         <div className="space-y-2 text-center">
-          <h2 className="text-5xl font-bold">Create account</h2>
+          <h2 className="text-5xl font-bold">Welcome Back</h2>
           <p className="text-gray-600 text-sm">
             Welcome back chief please enter your details
           </p>

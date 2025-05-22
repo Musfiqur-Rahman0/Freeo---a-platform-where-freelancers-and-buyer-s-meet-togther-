@@ -4,9 +4,10 @@ import { AuthContext } from "../context/AuthContext";
 const TaskForm = ({ handlerFunc, btnText, primaryText, taskdata }) => {
   const { user } = use(AuthContext);
 
+  console.log(taskdata);
   return (
     <form
-      onSubmit={(e) => handlerFunc(e, taskdata._id)}
+      onSubmit={taskdata ? (e) => handlerFunc(e, taskdata._id) : handlerFunc}
       className="px-20 py-12 rounded-lg shadow-md h-full w-full my-10 space-y-10 border border-gray-100"
     >
       <div className="text-center">
@@ -71,7 +72,7 @@ const TaskForm = ({ handlerFunc, btnText, primaryText, taskdata }) => {
               type="text"
               name="tags"
               defaultValue={taskdata?.tags || ""}
-              placeholder="Enter your tags"
+              placeholder="Separate tags by commas ( , )"
               className="py-3 outline-none w-full rounded-md shadow-sm border border-gray-500 px-3"
             />
           </div>
@@ -89,6 +90,19 @@ const TaskForm = ({ handlerFunc, btnText, primaryText, taskdata }) => {
             />
           </div>
         </div>
+        <div className="space-y-1 flex flex-col">
+          <label htmlFor="skills" className="font-bold">
+            Skill Required
+          </label>
+          <input
+            type="text"
+            name="skills"
+            defaultValue={taskdata?.skills || ""}
+            placeholder="Seperate your skills required by commas ( , )"
+            required
+            className="py-3 outline-none w-full rounded-md shadow-sm border border-gray-500 px-3"
+          />
+        </div>
 
         <div className="space-y-1 flex flex-col">
           <label htmlFor="description" className="font-bold">
@@ -99,8 +113,33 @@ const TaskForm = ({ handlerFunc, btnText, primaryText, taskdata }) => {
             name="description"
             defaultValue={taskdata?.description || ""}
             required
-            class="resize-y  py-3 outline-none w-full rounded-md shadow-sm border border-gray-500 px-3"
+            className="resize-y  py-3 outline-none w-full rounded-md shadow-sm border border-gray-500 px-3"
           ></textarea>
+        </div>
+        <div className="space-y-1 flex flex-col">
+          <label htmlFor="requirement" className="font-bold">
+            Task Requirement
+          </label>
+          <textarea
+            id="requirement"
+            name="requirement"
+            placeholder="Seperate your requirement by commas ( , )"
+            defaultValue={taskdata?.description || ""}
+            required
+            className="resize-y  py-3 outline-none w-full rounded-md shadow-sm border border-gray-500 px-3"
+          ></textarea>
+        </div>
+
+        <div className="space-y-1 flex flex-col ">
+          <label htmlFor="to_apply" className="font-bold">
+            Must Apply
+          </label>
+          <textarea
+            type="text"
+            name="to_apply"
+            defaultValue={taskdata?.to_apply || ""}
+            className="py-3 outline-none w-full rounded-md shadow-sm border border-gray-500 px-3"
+          />
         </div>
 
         {/* email */}

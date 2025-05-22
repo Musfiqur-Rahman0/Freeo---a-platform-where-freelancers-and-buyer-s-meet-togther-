@@ -19,7 +19,7 @@ const AllTasks = () => {
       </div>
       <div className="space-y-8">
         {allTask.map((task) => (
-          <TaskCard taskdata={task} />
+          <TaskCard taskdata={task} key={task._id} />
         ))}
       </div>
     </div>

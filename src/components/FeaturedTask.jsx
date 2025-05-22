@@ -15,7 +15,7 @@ const FeaturedTask = () => {
         <h2 className="text-5xl font-bold">Most Recent jobs</h2>
       </div>
       <div className="w-full space-y-5 ">
-        {recentTask.map((task) => (
+        {recentTask?.map((task) => (
           <TaskCard key={task._id} taskdata={task} />
         ))}
       </div>

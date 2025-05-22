@@ -16,7 +16,6 @@ export const navigation = [
   { name: "Browse Tasks", pathName: "/browse-tasks" },
   { name: "My Posted Tasks", pathName: "/my-tasks" },
   { name: "Login", pathName: "/login" },
-  { name: "Signup", pathName: "/signup" },
 ];
 
 export const featuredCategories = [

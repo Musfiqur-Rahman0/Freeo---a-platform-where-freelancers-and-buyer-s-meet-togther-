@@ -11,7 +11,7 @@ import Loading from "../components/Loading";
 import Errorpage from "../pages/Errorpage";
 import PrivetRoute from "./PrivetRoute";
 import TaskDetails from "../pages/TaskDetails";
-import AuthLayout from "../Layouts/AuthLayout";
+import UpdateTask from "../pages/UpdateTask";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-tasks",
-
         element: (
           <PrivetRoute>
             <MyTasks />
@@ -51,7 +50,21 @@ const router = createBrowserRouter([
         path: "/tasks/:id",
         loader: ({ params }) =>
           fetch(`https://microjob-server.vercel.app/tasks/${params.id}`),
-        Component: TaskDetails,
+        element: (
+          <PrivetRoute>
+            <TaskDetails />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/update-task/:id",
+        loader: ({ params }) =>
+          fetch(`https://microjob-server.vercel.app/tasks/${params.id}`),
+        element: (
+          <PrivetRoute>
+            <UpdateTask />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/add-task",

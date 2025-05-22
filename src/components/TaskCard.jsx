@@ -19,6 +19,8 @@ const TaskCard = ({
   const diffMins = Math.round(diff / 60000);
   const navigate = useNavigate();
 
+  const tagsArr = tags.split(",");
+
   useEffect(() => {
     if (diffMins < 1) {
       setTime("About to finish");
@@ -53,13 +55,7 @@ const TaskCard = ({
 
       <div class="mt-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          {[
-            "3D Animation",
-            "After Effects",
-            "Animation",
-            "Graphic Design",
-            "Logo Design",
-          ].map((tag, index) => (
+          {tagsArr?.map((tag, index) => (
             <span
               key={index}
               className=" px-3 text-[0.7rem] py-1 rounded-full text-green-500 font-semibold bg-green-50 "
@@ -95,7 +91,8 @@ const TaskCard = ({
               </button>
               <button
                 // onClick={() => handleDelete(_id)}
-                onClick={() => setOpen(!open)}
+                // onClick={() => setOpen(!open)}
+                onClick={() => navigate(`/update-task/${_id}`)}
                 className="px-5 py-2 rounded-full border bg-green-500 text-white border-gray-200  cursor-pointer"
               >
                 Update
@@ -104,9 +101,9 @@ const TaskCard = ({
           )}
         </div>
       </div>
-      {open && (
+      {/* {open && (
         <UpdateModal open={open} setOpen={setOpen} taskdata={taskdata} />
-      )}
+      )} */}
     </div>
   );
 };

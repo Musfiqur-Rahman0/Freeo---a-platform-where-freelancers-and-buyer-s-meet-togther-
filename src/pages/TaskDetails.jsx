@@ -7,35 +7,46 @@ import {
   PencilLine,
   PinIcon,
 } from "lucide-react";
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { data, useLoaderData } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 const TaskDetails = () => {
   const { user } = use(AuthContext);
+  const [bidsCount, setBidsCount] = useState(20);
 
   const task = useLoaderData();
 
   const handleBid = (e) => {
     e.preventDefault();
-
+    Swal.fire({
+      title: "Ready to bid?",
+      text: "You won't be able to revert this",
+      showCancelButton: true,
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes ",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setBidsCount((prev) => prev + 1);
+      }
+    });
     // console.log("submited");
   };
 
+  const { requirement, tags, skills } = task;
+
+  const requirementArr = requirement.split(",");
+  const skillsArr = skills.split(",");
   return (
     <div>
       <div className="max-w-7xl mx-auto">
-        <div className="my-8 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold ">
-            Urgent Fundraiser Ad Campaign Setup & Management{" "}
-            <span className="ml-2  px-2 py-1 rounded-full text-[0.7rem] bg-green-100">
-              Open
-            </span>
-          </h2>
-          <div className="text-right text-xl">
-            <p>Total Bids</p>
-            <p className="font-bold">21</p>
+        <div className="my-8 flex items-center justify-between pt-10">
+          <h2 className="text-3xl font-semibold ">{task?.title}</h2>
+          <div className="text-right text-xl flex items-center gap-2">
+            <p>Total Bids : </p>
+            <span className="font-bold">{bidsCount}</span>
           </div>
         </div>
 
@@ -47,7 +58,7 @@ const TaskDetails = () => {
                   Projects details
                 </h3>
                 <div className="text-right space-y-1">
-                  <p className="text-sm font-semibold">$30.00 – 250.00 USD</p>
+                  <p className="text-sm font-semibold">{task?.price} Taka</p>
                   <div className="text-sm flex items-center gap-2">
                     <Clock10 size={16} />
                     <p>Bidding ends in 6 days, 23 hours</p>
@@ -56,33 +67,18 @@ const TaskDetails = () => {
               </div>
               <div>
                 <p>Title :</p>
-                <h2 className="font-semibold">
-                  Ad Campaign Setup & Management for Urgent Fundraiser Launch
-                </h2>
+                <h2 className="font-semibold">{task?.title}</h2>
               </div>
 
               <div>
-                <p>Description :</p>
-                <p>
-                  We’re looking for an experienced digital advertising
-                  professional to help us quickly launch and manage a short-term
-                  campaign across Facebook, Instagram, and Google. This project
-                  is urgent and needs to go live within 24–48 hours. We already
-                  have all creative assets ready (including flyer, logo, and key
-                  messaging) — we simply need a reliable expert to execute the
-                  technical setup and ensure smooth delivery of the ads.
-                </p>
+                <p className="font-bold">Description :</p>
+                <p>{task?.description}</p>
               </div>
               <div>
-                <p>Requirements :</p>
-                <p>
-                  Proven experience with Meta Ads Manager and Google Ads <br />
-                  Can begin immediately and deliver within 24–48 hours <br />
-                  Communicates clearly and efficiently <br />
-                  Attention to detail and ad quality <br />
-                  Bonus if you’re familiar with campaign urgency and
-                  impact-focused messaging
-                </p>
+                <p className="font-bold">Requirements :</p>
+                {requirementArr.map((req, i) => (
+                  <p key={i}>{req}</p>
+                ))}
               </div>
               <div>
                 <p>Duration :</p>
@@ -94,9 +90,7 @@ const TaskDetails = () => {
               <div>
                 <p>To Apply :</p>
                 <p>
-                  Please share relevant examples of campaigns you’ve
-                  successfully launched. Speed, professionalism, and ability to
-                  execute under pressure will be prioritized.
+                  {task?.to_apply}
                   <br />
                   <br />
                   Let me know if you want a version focused only on Meta or only
@@ -107,16 +101,10 @@ const TaskDetails = () => {
               <div className="space-y-3">
                 <h4 className="font-bold">Skills Required</h4>
                 <div className="flex items-center gap-3">
-                  {[
-                    "Graphic Design",
-                    "Internet Marketing",
-                    "Google Adwords",
-                    "Facebook Marketing",
-                    "Advertising",
-                  ].map((skills, index) => (
+                  {skillsArr.map((skills, index) => (
                     <div
                       key={index}
-                      className="px-4 py-1 rounded-full border border-gray-400 cursor-pointer hover:text-slate-700"
+                      className="capitalize px-4 py-1 rounded-full border border-gray-400 cursor-pointer hover:text-slate-700"
                     >
                       {skills}
                     </div>
@@ -158,11 +146,11 @@ const TaskDetails = () => {
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
                   <PencilLine size={18} />
-                  <p>{user.displayName}</p>
+                  <p>{user?.displayName}</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <MailIcon size={18} />
-                  <p>{user.email}</p>
+                  <p>{user?.email}</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <FaMapMarkerAlt size={18} />

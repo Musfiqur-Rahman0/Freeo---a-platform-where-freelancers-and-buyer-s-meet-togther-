@@ -12,34 +12,6 @@ import Swal from "sweetalert2";
 const UpdateModal = ({ open, setOpen, taskdata }) => {
   //   const [open, setOpen] = useState(true);
 
-  const handleUpdate = (e, id) => {
-    e.preventDefault();
-
-    const form = e.target;
-    const formdata = new FormData(form);
-    const formObj = Object.fromEntries(formdata.entries());
-
-    fetch(`https://microjob-server.vercel.app/tasks/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formObj),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          Swal.fire({
-            title: "Drag me!",
-            icon: "success",
-          }).then((res) => {
-            if (res.isConfirmed) {
-              setOpen(false);
-            }
-          });
-        }
-      });
-  };
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
       <DialogBackdrop
