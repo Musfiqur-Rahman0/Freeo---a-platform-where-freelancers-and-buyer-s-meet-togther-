@@ -3,7 +3,7 @@ import { BiX } from "react-icons/bi";
 import { BsBell } from "react-icons/bs";
 import { HiBars3 } from "react-icons/hi2";
 import { navigation } from "../utils/data";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
@@ -66,7 +66,9 @@ const Header = () => {
 
           <div className="flex flex-1 items-center  sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center">
-              <h2 className="text-4xl font-bold">Freeo</h2>
+              <Link to="/" className="text-4xl font-bold">
+                Freeo
+              </Link>
             </div>
           </div>
 

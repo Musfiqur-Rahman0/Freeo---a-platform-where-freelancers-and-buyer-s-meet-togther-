@@ -41,32 +41,34 @@ const TaskDetails = () => {
   const skillsArr = skills.split(",");
   return (
     <div>
-      <div className="max-w-7xl mx-auto">
-        <div className="my-8 flex items-center justify-between pt-10">
-          <h2 className="text-3xl font-semibold ">{task?.title}</h2>
-          <div className="text-right text-xl flex items-center gap-2">
+      <div className="max-w-7xl mx-auto px-2 md:px-0">
+        <div className="my-8 grid grid-cols-7  pt-10">
+          <h2 className="text-xl md:text-3xl font-bold col-span-5">
+            {task?.title}
+          </h2>
+          <div className="col-span-2  text-right text-xs md:text-xl flex justify-end items-center gap-2 ">
             <p>Total Bids : </p>
             <span className="font-bold">{bidsCount}</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-6 ">
-          <div className="col-span-3 space-y-14">
-            <div className="px-12 py-8 md border border-gray-200 space-y-6 rounded-lg">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+          <div className="md:col-span-3 space-y-14">
+            <div className="py-5 px-2 md:px-12 md:py-8 md border border-gray-200 space-y-6 rounded-lg">
               <div className="flex items-center justify-between">
-                <h3 className="font-bold text-xl pl-2 border-l-4 border-red-500 ">
+                <h3 className="font-bold md:text-xl pl-2 border-l-4 border-red-500 ">
                   Projects details
                 </h3>
                 <div className="text-right space-y-1">
                   <p className="text-sm font-semibold">{task?.price} Taka</p>
-                  <div className="text-sm flex items-center gap-2">
-                    <Clock10 size={16} />
+                  <div className="text-[0.6rem] md:text-sm flex items-center gap-2">
+                    <Clock10 size={12} />
                     <p>Bidding ends in 6 days, 23 hours</p>
                   </div>
                 </div>
               </div>
               <div>
-                <p>Title :</p>
+                <p className="font-bold">Title :</p>
                 <h2 className="font-semibold">{task?.title}</h2>
               </div>
 
@@ -81,14 +83,14 @@ const TaskDetails = () => {
                 ))}
               </div>
               <div>
-                <p>Duration :</p>
+                <p className="font-bold">Duration :</p>
                 <p>
                   Short-term (1–2 weeks max) <br />
                   May extend based on performance
                 </p>
               </div>
               <div>
-                <p>To Apply :</p>
+                <p className="font-bold">To Apply :</p>
                 <p>
                   {task?.to_apply}
                   <br />
@@ -100,11 +102,11 @@ const TaskDetails = () => {
               </div>
               <div className="space-y-3">
                 <h4 className="font-bold">Skills Required</h4>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center flex-wrap gap-3">
                   {skillsArr.map((skills, index) => (
                     <div
                       key={index}
-                      className="capitalize px-4 py-1 rounded-full border border-gray-400 cursor-pointer hover:text-slate-700"
+                      className="capitalize text-xs md:text-sm px-2 md:px-4 py-1 rounded-full border border-gray-400 cursor-pointer hover:text-slate-700"
                     >
                       {skills}
                     </div>

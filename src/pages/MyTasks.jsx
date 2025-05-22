@@ -62,8 +62,8 @@ const MyTasks = () => {
 
   return (
     <div>
-      <div className="py-20 max-w-7xl mx-auto">
-        <h2 className="text-5xl font-bold pl-3 border-l border-red-500 mb-10">
+      <div className="py-10 md:py-20 max-w-7xl mx-auto px-3 md:px-0">
+        <h2 className="text-4xl  md:text-5xl font-bold pl-3 border-l-4 border-red-500 mb-10">
           My Posted Tasks
         </h2>
         <div className="space-y-5">

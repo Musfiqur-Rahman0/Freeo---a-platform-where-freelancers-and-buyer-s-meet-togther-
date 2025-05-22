@@ -74,10 +74,10 @@ const TaskCard = ({
 
           {/* <span class="ml-1 text-gray-500 text-sm">(5 reviews)</span> */}
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <button
             onClick={() => navigate(`/tasks/${_id}`)}
-            className="px-5 py-2 rounded-full border bg-black text-white border-gray-200  cursor-pointer"
+            className="md:px-5 md:py-2 px-3 py-1 text-xs md:text-sm rounded-full border bg-black text-white border-gray-200  cursor-pointer"
           >
             See Details
           </button>
@@ -85,7 +85,7 @@ const TaskCard = ({
             <>
               <button
                 onClick={() => handleDelete(_id)}
-                className="px-5 py-2 rounded-full border bg-orange-500 text-white border-gray-200  cursor-pointer"
+                className="md:px-5 md:py-2 px-3 py-1 text-xs md:text-sm rounded-full border bg-orange-500 text-white border-gray-200  cursor-pointer"
               >
                 Delete
               </button>
@@ -93,7 +93,7 @@ const TaskCard = ({
                 // onClick={() => handleDelete(_id)}
                 // onClick={() => setOpen(!open)}
                 onClick={() => navigate(`/update-task/${_id}`)}
-                className="px-5 py-2 rounded-full border bg-green-500 text-white border-gray-200  cursor-pointer"
+                className="md:px-5 md:py-2 px-3 py-1 text-xs md:text-sm rounded-full border bg-green-500 text-white border-gray-200  cursor-pointer"
               >
                 Update
               </button>

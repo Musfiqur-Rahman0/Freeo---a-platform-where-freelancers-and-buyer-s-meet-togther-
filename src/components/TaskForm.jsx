@@ -8,7 +8,7 @@ const TaskForm = ({ handlerFunc, btnText, primaryText, taskdata }) => {
   return (
     <form
       onSubmit={taskdata ? (e) => handlerFunc(e, taskdata._id) : handlerFunc}
-      className="px-20 py-12 rounded-lg shadow-md h-full w-full my-10 space-y-10 border border-gray-100"
+      className="py-5 px-3 md:px-20 md:py-12 rounded-lg shadow-md h-full w-full my-10 space-y-10 border border-gray-100"
     >
       <div className="text-center">
         <h2 className="text-4xl font-bold">{primaryText}</h2>

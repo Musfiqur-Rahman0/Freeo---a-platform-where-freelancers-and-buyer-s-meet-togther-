@@ -10,7 +10,7 @@ const Footer = () => {
             <h2 className="text-4xl font-bold text-center lg:text-start">
               Freeo
             </h2>
-            <p className="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">
+            <p className="py-4 md:py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">
               Trusted in more than 100 countries & 5 million customers. Have any
               query ?
             </p>
