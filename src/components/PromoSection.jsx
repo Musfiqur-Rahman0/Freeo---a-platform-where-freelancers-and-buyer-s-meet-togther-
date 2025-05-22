@@ -26,7 +26,7 @@ const PromoSection = () => {
             </div>
           </div>
         </div>
-        <div className="columns-2 md:columns-3  space-y-5 justify-between">
+        <div className="columns-2 md:columns-3  space-y-5 justify-between px-3 sm:px-0">
           <img
             className="rounded-lg"
             src="/src/assets/17352575-152b-453d-ad45-aaa817668241.jpeg"

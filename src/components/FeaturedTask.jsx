@@ -7,12 +7,12 @@ const FeaturedTask = () => {
   const [recentTask, setRecentTask] = useState(initialTask);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 px-3 sm:px-0">
       <div className="space-y-1">
         <p className=" text-gray-600 border-l border-red-500 pl-2">
           Freeo jobs
         </p>
-        <h2 className="text-5xl font-bold">Most Recent jobs</h2>
+        <h2 className="text-4xl md:text-5xl font-bold">Most Recent jobs</h2>
       </div>
       <div className="w-full space-y-5 ">
         {recentTask?.map((task) => (

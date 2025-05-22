@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const handleToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -34,15 +35,17 @@ const Header = () => {
           title: "Successfully loged out",
           icon: "success",
         });
+        setIsHovered(false);
       }
     });
   };
 
+  console.log(isHovered);
   return (
     <nav className="bg-white fixed top-0 z-20 w-full border-b border-gray-200">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-0">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
             <div
               onClick={handleToggle}
@@ -106,7 +109,12 @@ const Header = () => {
                     </NavLink>
                   ))
                 ) : (
-                  <div className="w-10 h-10 overflow-hidden rounded-full">
+                  <div
+                    // onMouseEnter={() => setIsHovered(true)} //এইটা কাজ তো করতেছে বুট লগউত এ ক্লিক করা যায় নাহ কারন মাউস সরে গেলে লগউত বাটন হিদে হয়ে যায়
+                    // onMouseLeave={() => setIsHovered(false)}
+                    onClick={() => setIsHovered(!isHovered)}
+                    className=" cursor-pointer w-10 h-10 overflow-hidden rounded-full"
+                  >
                     <img
                       src={user?.photoURL}
                       alt={user?.photoURL}
@@ -114,10 +122,21 @@ const Header = () => {
                     />
                   </div>
                 )}
+                {isHovered && (
+                  <div className=" text-white bg-slate-500 absolute -bottom-36 right-0 z-10 p-8 rounded-lg flex items-center justify-center gap-3 flex-col">
+                    <p className="text-xl font-bold ">{user?.displayName}</p>
+                    <button
+                      onClick={handleLogout}
+                      className=" bg-white cursor-pointer text-black px-5 py-2 rounded-lg"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
               </div>
             )}
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
               onClick={handleLogout}
@@ -125,7 +144,7 @@ const Header = () => {
             >
               Logout
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* mobile navigation menu */}

@@ -43,16 +43,4 @@ export const featuredCategories = [
     title: "AI Services",
     icon: FaRobot,
   },
-  {
-    title: "Music & Audio",
-    icon: FaMusic,
-  },
-  {
-    title: "Business",
-    icon: FaBriefcase,
-  },
-  {
-    title: "Consulting",
-    icon: FaUserTie,
-  },
 ];

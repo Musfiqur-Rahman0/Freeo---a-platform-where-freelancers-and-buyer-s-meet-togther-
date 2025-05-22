@@ -3,9 +3,9 @@ import { featuredCategories } from "../utils/data";
 
 const Featured = () => {
   return (
-    <div>
+    <div className="p-2">
       {/* <h2 className="my-5 text-4xl font-bold">Featured Categories</h2> */}
-      <div className="grid grid-cols-6 gap-5 items-center">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 items-center">
         {featuredCategories.map((Features, index) => {
           const Icon = Features.icon;
           return (

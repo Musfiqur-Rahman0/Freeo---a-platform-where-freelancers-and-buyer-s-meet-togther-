@@ -46,7 +46,7 @@ const TaskCard = ({
     <div class="max-w-7xl mx-auto  bg-white shadow-lg rounded-lg p-6 border border-gray-200 hover:bg-[#fbfefb] cursor-pointer transition-colors duration-300">
       <div class="flex justify-between items-center">
         <h2 class="text-lg font-bold  ">{title}</h2>
-        <div class="text-right">
+        <div class="text-right hidden md:block">
           <p class="text-gray-700 font-semibold">Price : {budget} Taka</p>
         </div>
       </div>
@@ -54,7 +54,7 @@ const TaskCard = ({
       <p class="mt-4 text-gray-600 text-sm">{description}</p>
 
       <div class="mt-5 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center flex-wrap gap-1 md:gap-3">
           {tagsArr?.map((tag, index) => (
             <span
               key={index}
@@ -64,7 +64,7 @@ const TaskCard = ({
             </span>
           ))}
         </div>
-        <p class="text-gray-500 text-sm">{time}</p>
+        <p class="text-gray-500 text-sm hidden md:block">{time}</p>
       </div>
 
       <div class="mt-4 flex justify-between items-center">
