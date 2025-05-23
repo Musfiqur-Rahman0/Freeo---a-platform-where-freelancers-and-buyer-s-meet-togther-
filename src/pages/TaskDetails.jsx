@@ -13,11 +13,15 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { data, useLoaderData } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
+import { getRemainingTime } from "@/utils/data";
 const TaskDetails = () => {
   const { user } = use(AuthContext);
   const [bidsCount, setBidsCount] = useState(20);
 
   const task = useLoaderData();
+
+  const { deadline } = task;
+  const remainingTime = getRemainingTime(deadline);
 
   const handleBid = (e) => {
     e.preventDefault();
@@ -32,7 +36,6 @@ const TaskDetails = () => {
         setBidsCount((prev) => prev + 1);
       }
     });
-    // console.log("submited");
   };
 
   const { requirement, tags, skills } = task;
@@ -62,8 +65,8 @@ const TaskDetails = () => {
                 <div className="text-right space-y-1">
                   <p className="text-sm font-semibold">{task?.price} Taka</p>
                   <div className="text-[0.6rem] md:text-sm flex items-center gap-2">
-                    <Clock10 size={12} />
-                    <p>Bidding ends in 6 days, 23 hours</p>
+                    <Clock10 size={14} />
+                    <p>{remainingTime}</p>
                   </div>
                 </div>
               </div>

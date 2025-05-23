@@ -15,7 +15,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  //   console.log(isloading, user);
+  
   const handleLoginForm = (e) => {
     e.preventDefault();
 
