@@ -19,7 +19,7 @@ const PromoSection = () => {
             <div className="mt-10">
               <Link
                 to={"/browse-tasks"}
-                className="inline-block text-foreground rounded-md bg-black px-8 py-3 text-center font-medium dark:border dark:border-white"
+                className="inline-block text-white rounded-md bg-black px-8 py-3 text-center font-medium dark:border dark:border-white"
               >
                 Browse tasks
               </Link>

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import herovideo from "../assets/92480-637690589_medium.mp4";
 import { BiPlay, BiSearch } from "react-icons/bi";
-
+import { MdMotionPhotosPaused } from "react-icons/md";
 const Hero = () => {
   const categories = [
     "website development",
@@ -11,7 +11,16 @@ const Hero = () => {
   ];
 
   const companies = ["Meta", "Google", "Netflix", "P&G", "PayPal", "Payoneer"];
+  const videoRef = useRef();
+  const [isPlaying, setIsPlaying] = useState(true);
 
+  const handleVideoToggle = () => {
+    if (!videoRef.current) return;
+    isPlaying ? videoRef.current.pause() : videoRef.current.play();
+    setIsPlaying(!isPlaying);
+  };
+
+  console.log(isPlaying);
   return (
     <div className="relative w-full ">
       <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent z-10"></div>
@@ -19,6 +28,7 @@ const Hero = () => {
         src={herovideo}
         className="hidden md:block w-full h-[680px] z-0 object-cover"
         autoPlay
+        ref={videoRef}
         muted
         loop
       ></video>
@@ -59,8 +69,15 @@ const Hero = () => {
                 <p key={index}>{company}</p>
               ))}
               <div className="hidden md:block absolute right-0">
-                <button className="outline  rounded-full cursor-pointer">
-                  <BiPlay size={24} />
+                <button
+                  onClick={handleVideoToggle}
+                  className="outline  rounded-full cursor-pointer"
+                >
+                  {isPlaying ? (
+                    <BiPlay size={24} />
+                  ) : (
+                    <MdMotionPhotosPaused size={24} />
+                  )}
                 </button>
               </div>
             </div>
