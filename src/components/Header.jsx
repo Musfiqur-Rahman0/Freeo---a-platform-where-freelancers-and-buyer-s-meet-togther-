@@ -20,7 +20,7 @@ const Header = () => {
   const { logout } = useAuth();
   const { user, isloading } = use(AuthContext);
 
-  // console.log(logout);
+  
 
   const handleLogout = () => {
     Swal.fire({
@@ -42,7 +42,6 @@ const Header = () => {
     });
   };
 
-  console.log(isHovered);
   return (
     <nav className="bg-background  fixed top-0 z-20 w-full border-b border-gray-200">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-0">

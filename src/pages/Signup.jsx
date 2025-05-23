@@ -22,7 +22,7 @@ const Signup = () => {
       formdata.entries()
     );
     signUp(email, password, first_name, photoURL, navigate);
-    // console.log(email, password, rest);
+    
   };
 
   return (

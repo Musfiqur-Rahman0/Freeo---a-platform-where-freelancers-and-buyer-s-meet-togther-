@@ -20,7 +20,7 @@ const Hero = () => {
     setIsPlaying(!isPlaying);
   };
 
-  console.log(isPlaying);
+
   return (
     <div className="relative w-full ">
       <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent z-10"></div>

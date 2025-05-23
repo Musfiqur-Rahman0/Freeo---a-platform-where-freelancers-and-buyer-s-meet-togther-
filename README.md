@@ -1,12 +1,43 @@
-# React + Vite
+# Freeo – MERN Stack Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Freeo is a full-stack MERN (MongoDB, Express, React, Node.js) web application that bridges the gap between clients seeking freelancers for small tasks and freelancers looking for work opportunities.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 **Task Marketplace** – Users can post tasks, set budgets, deadlines, and required skills. Freelancers can browse and bid on tasks that match their expertise.
+- 🌗 **Dark/Light Mode** – Theme toggling powered by **shadcn/ui** for an enhanced user experience.
+- 🎞 **Animated Experience** – Integrated **Lottie animations** to enrich interactivity.
+- 🖱️ **Smooth Scrolling** – Fluid navigation and user flow across all sections.
+- 🎥 **Interactive Video Banner** – Engaging video embedded in the hero/banner section for strong visual impact.
+- 📝 **CRUD Operations** – Fully functional Create, Read, Update, and Delete operations for user tasks and profiles.
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React.js, Tailwind CSS, Shadcn/UI, Lottie-React
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Other Tools:** React Router, React Icons, Lucide Icons, HeadlessUi, Sweet Alert
+
+## 📁 Folder Structure
+
+```
+Freeo/
+├── client/             # React frontend
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── context/
+│       ├── hooks/
+│       ├── App.jsx
+│       └── main.jsx
+│       ├── pages/
+│       ├── hooks/
+│       ├── theme.jsx
+│       └── routes.jsx
+├──
+└── README.md
+```
+
+---
+
+Crafted with ❤️ using the MERN stack.
