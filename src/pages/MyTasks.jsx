@@ -3,7 +3,8 @@ import TaskCard from "../components/TaskCard";
 import { AuthContext } from "../context/AuthContext";
 import Loading from "../components/Loading";
 import Swal from "sweetalert2";
-
+import Lottie from "lottie-react";
+import imptyFiles from "../assets/emptyFiles.json";
 const MyTasks = () => {
   const { user } = use(AuthContext);
   const [taskLoading, setTaskLoading] = useState(false);
@@ -66,7 +67,7 @@ const MyTasks = () => {
         <div className="space-y-5">
           {taskLoading ? (
             <Loading />
-          ) : (
+          ) : myTask.length !== 0 ? (
             myTask.map((task) => (
               <TaskCard
                 key={task._id}
@@ -75,6 +76,11 @@ const MyTasks = () => {
                 handleDelete={handleDelete}
               />
             ))
+          ) : (
+            <Lottie
+              animationData={imptyFiles}
+              className="h-[300px] md:h-[500px] md:block"
+            />
           )}
         </div>
       </div>
