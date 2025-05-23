@@ -24,7 +24,7 @@ const UpdateTask = () => {
       .then((data) => {
         if (data.modifiedCount) {
           Swal.fire({
-            title: "Drag me!",
+            title: "Task Updated Successful!",
             icon: "success",
           }).then((res) => {
             if (res.isConfirmed) {
