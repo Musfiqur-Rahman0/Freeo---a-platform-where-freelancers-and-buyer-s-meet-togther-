@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="md:hidden h-[580px] w-full bg-green-500"></div>
       <div className="absolute inset-0 h-full w-full  z-10 pt-[176px] pb-8">
         <div className="max-w-7xl  h-full mx-auto flex flex-col justify-between">
-          <div className="md:w-4/6 space-y-5 p-3 md:p-0">
+          <div className="md:w-4/6 space-y-5 p-3 lg:p-0">
             <h2 className="text-white text-4xl md:text-5xl font-bold  md:max-w-[610px]">
               Our freelancers <br /> will take it from here
             </h2>
@@ -33,7 +33,7 @@ const Hero = () => {
               <input
                 type="text"
                 placeholder="Search here"
-                className="w-full bg-white outline-none border-none p-3 rounded-md"
+                className="w-full bg-white text-black outline-none border-none p-3 rounded-md"
               />
               <div className="absolute right-1 top-1/2 -translate-y-1/2">
                 <button className="bg-gray-800 text-white rounded-md p-2">
@@ -52,7 +52,7 @@ const Hero = () => {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-5 p-3 sm:p-0 text-gray-800 text-xs md:text-sm md:text-gray-300 relative">
+          <div className="flex items-center gap-5 p-3 lg:p-0 text-gray-800 text-xs md:text-sm md:text-gray-300 relative">
             <span>Trusted by : </span>
             <div className="flex items-center gap-3">
               {companies.map((company, index) => (

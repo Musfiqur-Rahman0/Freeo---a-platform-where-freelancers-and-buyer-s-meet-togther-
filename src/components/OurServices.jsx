@@ -28,10 +28,10 @@ const OurServices = () => {
 
   return (
     <div className="max-w-7xl mx-auto ">
-      <div className="px-3 py-5 md:px-12 md:py-10 rounded-md bg-[#e8faf4] grid md:grid-cols-2 ">
-        <div className="space-y-4 md:space-y-8">
-          <p className="text-xl font-semibold">Our Services</p>
-          <h2 className="text-4xl md:text-5xl font-semibold">
+      <div className="px-3 py-5 md:px-12 md:py-10 rounded-md bg-[#e8faf4] grid lg:grid-cols-2 ">
+        <div className=" space-y-4 md:space-y-8">
+          <p className="text-gray-800 text-xl font-semibold">Our Services</p>
+          <h2 className="text-black text-4xl md:text-5xl font-semibold">
             What we offers?
           </h2>
           <div className="grid grid-cols-2 gap-3 md:gap-5">

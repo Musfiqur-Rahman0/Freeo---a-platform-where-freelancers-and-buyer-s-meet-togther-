@@ -11,7 +11,7 @@ const Featured = () => {
           return (
             <div
               key={index}
-              className="p-5 rounded-lg bg-white space-y-5 border border-gray-300 shadow-md cursor-pointer"
+              className="p-5 rounded-lg bg-white text-black space-y-5 border border-gray-300 shadow-md cursor-pointer"
             >
               <div>
                 <Icon size={30} />

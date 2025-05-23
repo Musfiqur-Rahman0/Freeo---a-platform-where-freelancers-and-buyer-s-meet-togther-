@@ -26,8 +26,12 @@ const Signup = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 max-w-7xl mx-auto pt-20  ">
-      <Lottie animationData={signupAnimation} style={style} />
+    <div className="grid md:grid-cols-2 max-w-7xl mx-auto pt-20  ">
+      <Lottie
+        animationData={signupAnimation}
+        style={style}
+        className="hidden md:block"
+      />
 
       <form
         onSubmit={handleSingup}
@@ -35,7 +39,7 @@ const Signup = () => {
       >
         <div className="space-y-2 text-center">
           <h2 className="text-5xl font-bold">Create Account</h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 dark:text-gray-400 text-sm">
             Welcome back chief please enter your details
           </p>
         </div>

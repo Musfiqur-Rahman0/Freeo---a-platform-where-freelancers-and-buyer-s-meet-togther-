@@ -2,14 +2,17 @@ import { RouterProvider } from "react-router";
 import router from "./routes/Routes";
 import AuthProvider from "./context/AuthContext";
 import GlobalProvider from "./context/GlobalContext";
+import { ThemeProvider } from "./Theme/ThemeProvider";
 
 function App() {
   return (
-    <AuthProvider>
-      <GlobalProvider>
-        <RouterProvider router={router} />
-      </GlobalProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <GlobalProvider>
+          <RouterProvider router={router} />
+        </GlobalProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

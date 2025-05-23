@@ -47,7 +47,7 @@ const AddTasks = () => {
 
   return (
     <section>
-      <div className="max-w-7xl mx-auto flex items-center justify-center h-full ">
+      <div className="  max-w-7xl mx-auto flex items-center justify-center h-full ">
         <TaskForm
           btnText={"Add Task"}
           handlerFunc={handleAddTask}

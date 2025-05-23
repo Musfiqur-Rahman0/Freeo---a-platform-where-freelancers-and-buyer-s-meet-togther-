@@ -175,7 +175,7 @@ const TaskForm = ({ handlerFunc, btnText, primaryText, taskdata }) => {
       <div>
         <button
           type="submit"
-          className="bg-black rounded-full w-full text-white py-3 cursor-pointer"
+          className="bg-black dark:border dark:border-white rounded-full w-full text-white py-3 cursor-pointer"
         >
           {btnText}
         </button>

@@ -43,9 +43,9 @@ const TaskCard = ({
   }, []);
 
   return (
-    <div class="max-w-7xl mx-auto  bg-white shadow-lg rounded-lg p-6 border border-gray-200 hover:bg-[#fbfefb] cursor-pointer transition-colors duration-300">
+    <div class="bg-background  max-w-7xl mx-auto  bg-white shadow-lg rounded-lg p-6 border border-gray-200 hover:bg-[#fbfefb] cursor-pointer transition-colors duration-300">
       <div class="flex justify-between items-center">
-        <h2 class="text-lg font-bold  ">{title}</h2>
+        <h2 class="text-lg font-bold  text-black">{title}</h2>
         <div class="text-right hidden md:block">
           <p class="text-gray-700 font-semibold">Price : {budget} Taka</p>
         </div>
@@ -75,13 +75,7 @@ const TaskCard = ({
           {/* <span class="ml-1 text-gray-500 text-sm">(5 reviews)</span> */}
         </div>
         <div className="flex items-center gap-2 md:gap-4">
-          <button
-            onClick={() => navigate(`/tasks/${_id}`)}
-            className="md:px-5 md:py-2 px-3 py-1 text-xs md:text-sm rounded-full border bg-black text-white border-gray-200  cursor-pointer"
-          >
-            See Details
-          </button>
-          {deleteBtn && (
+          {deleteBtn ? (
             <>
               <button
                 onClick={() => handleDelete(_id)}
@@ -97,7 +91,20 @@ const TaskCard = ({
               >
                 Update
               </button>
+              <button
+                // onClick={() => navigate(`/tasks/${_id}`)}
+                className="md:px-5 md:py-2 px-3 py-1 text-xs md:text-sm rounded-full border bg-black text-white border-gray-200  cursor-pointer"
+              >
+                Bids
+              </button>
             </>
+          ) : (
+            <button
+              onClick={() => navigate(`/tasks/${_id}`)}
+              className="md:px-5 md:py-2 px-3 py-1 text-xs md:text-sm rounded-full border bg-black text-white border-gray-200  cursor-pointer"
+            >
+              See Details
+            </button>
           )}
         </div>
       </div>

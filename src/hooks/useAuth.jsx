@@ -33,7 +33,13 @@ const useAuth = () => {
       });
       navigate("/login");
     } catch (err) {
+      const errMessage = err.message;
       console.error(err);
+      Swal.fire({
+        title: errMessage,
+        icon: "error",
+        draggable: true,
+      });
     }
   };
 
@@ -63,7 +69,13 @@ const useAuth = () => {
       });
       navigate(`${location.state ? location.state : "/"}`);
     } catch (err) {
-      console.log(err);
+      const errMessage = err.message;
+      console.log(errMessage);
+      Swal.fire({
+        title: errMessage,
+        icon: "error",
+        draggable: true,
+      });
     }
   };
 

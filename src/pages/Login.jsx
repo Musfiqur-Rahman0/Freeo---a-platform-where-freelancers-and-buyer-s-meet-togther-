@@ -27,18 +27,18 @@ const Login = () => {
   };
 
   return (
-    <div className="pt-20 grid grid-cols-2 max-w-7xl mx-auto items-center justify-center">
+    <div className="pt-20  grid md:grid-cols-2 max-w-7xl gap-10 md:gap-0 mx-auto  items-center justify-center">
       <form
         onSubmit={handleLoginForm}
         className="w-full  flex flex-col items-center justify-center   h-full space-y-8"
       >
         <div className="space-y-2 text-center">
           <h2 className="text-5xl font-bold">Welcome Back</h2>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 dark:text-gray-400 text-sm">
             Welcome back chief please enter your details
           </p>
         </div>
-        <div className="space-y-5 w-4/5 ">
+        <div className="space-y-5 w-full md:w-4/5 ">
           <div className="space-y-1 flex flex-col">
             <label htmlFor="email">Email</label>
             <input
@@ -109,7 +109,11 @@ const Login = () => {
           </div>
         </div>
       </form>
-      <Lottie animationData={loginAnimation} style={style} />
+      <Lottie
+        animationData={loginAnimation}
+        style={style}
+        className="hidden md:block"
+      />
     </div>
   );
 };

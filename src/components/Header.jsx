@@ -7,6 +7,8 @@ import { Link, NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
+import { Switch } from "./ui/switch";
+import { ModeToggle } from "./Mode/ModeToggle";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,10 +44,10 @@ const Header = () => {
 
   console.log(isHovered);
   return (
-    <nav className="bg-white fixed top-0 z-20 w-full border-b border-gray-200">
+    <nav className="bg-background  fixed top-0 z-20 w-full border-b border-gray-200">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-0">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+          <div className="absolute inset-y-0 right-10 flex items-center sm:hidden">
             {/* Mobile menu button*/}
             <div
               onClick={handleToggle}
@@ -66,7 +68,7 @@ const Header = () => {
 
           <div className="flex flex-1 items-center  sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center">
-              <Link to="/" className="text-4xl font-bold">
+              <Link to="/" className="text-foreground text-4xl font-bold">
                 Freeo
               </Link>
             </div>
@@ -84,9 +86,9 @@ const Header = () => {
                     className={({ isActive }) =>
                       `${
                         isActive
-                          ? "bg-gray-50 text-black font-bold"
-                          : "text-black hover:bg-gray-50 "
-                      } block rounded-md px-3 py-2 text-base font-medium`
+                          ? "bg-card text-foreground font-bold border-b border-foreground"
+                          : "text-foreground hover:bg-card "
+                      } block  px-3 py-2  font-medium`
                     }
                   >
                     {item.name}
@@ -138,15 +140,9 @@ const Header = () => {
               </div>
             )}
           </div>
-          {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <button
-              type="button"
-              onClick={handleLogout}
-              className="relative rounded-full font-bold p-1 text-gray-700   focus:ring-offset-2   cursor-pointer outline"
-            >
-              Logout
-            </button>
-          </div> */}
+          <div className="ml-3 flex items-center space-x-2">
+            <ModeToggle />
+          </div>
         </div>
       </div>
       {/* mobile navigation menu */}

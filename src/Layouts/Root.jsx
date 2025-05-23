@@ -14,7 +14,7 @@ const Root = () => {
       ) : (
         <>
           <Header />
-          <main className="mt-16 min-h-[calc(100vh-450px)] ">
+          <main className="mt-16 min-h-[calc(100vh-450px)] bg-background">
             <Outlet />
           </main>
           <Footer />

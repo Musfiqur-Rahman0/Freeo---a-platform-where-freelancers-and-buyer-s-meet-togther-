@@ -3,14 +3,14 @@ import { Link } from "react-router";
 
 const PromoSection = () => {
   return (
-    <div className="relative overflow-hidden bg-white">
-      <div className="grid  md:grid-cols-2 gap-8 items-center  mx-auto max-w-7xl">
+    <div className="relative overflow-hidden bg-background text-foreground">
+      <div className="px-3 lg:px-0 grid  md:grid-cols-2 gap-8 items-center  mx-auto max-w-7xl">
         <div className=" flex flex-col items-center md:block text-center md:text-start ">
           <div className="sm:max-w-lg">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-3xl font-bold tracking-tight  sm:text-6xl">
               Made on Freeo
             </h1>
-            <p className="mt-4 text-xl text-gray-500">
+            <p className="mt-4 text-xl text-foreground/70">
               This year, our new summer collection will shelter you from the
               harsh elements of a world that doesn't care if you live or die.
             </p>
@@ -18,8 +18,8 @@ const PromoSection = () => {
           <div>
             <div className="mt-10">
               <Link
-                to={"/allTasks"}
-                className="inline-block text-white rounded-md bg-black px-8 py-3 text-center font-medium "
+                to={"/browse-tasks"}
+                className="inline-block text-foreground rounded-md bg-black px-8 py-3 text-center font-medium dark:border dark:border-white"
               >
                 Browse tasks
               </Link>
