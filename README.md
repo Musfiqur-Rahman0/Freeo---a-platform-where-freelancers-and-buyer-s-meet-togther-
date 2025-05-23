@@ -38,6 +38,11 @@ Freeo/
 └── README.md
 ```
 
+🔗 Live Demo & Repository
+
+🌐 Live Site: https://microjob-client.web.app/
+📦 Repository: https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-Musfiqur-Rahman0.git
+
 ---
 
 Crafted with ❤️ using the MERN stack.
