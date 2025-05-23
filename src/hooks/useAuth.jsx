@@ -15,7 +15,7 @@ const useAuth = () => {
   const { setIsLoading, setUser } = use(AuthContext);
 
   const location = useLocation();
-  // console.log(location);
+
   const signUp = async (email, password, first_name, photoURL, navigate) => {
     try {
       //   setIsLoading(true);
@@ -70,7 +70,7 @@ const useAuth = () => {
       navigate(`${location.state ? location.state : "/"}`);
     } catch (err) {
       const errMessage = err.message;
-      console.log(errMessage);
+
       Swal.fire({
         title: errMessage,
         icon: "error",

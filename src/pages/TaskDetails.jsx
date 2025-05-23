@@ -119,11 +119,13 @@ const TaskDetails = () => {
               onSubmit={handleBid}
               className="space-y-6  bg-white p-8 rounded-lg w-full shadow-md border border-gray-200"
             >
-              <h2 className="text-2xl font-semibold  border-l-4 pl-2 border-red-500">
+              <h2 className="text-2xl text-black font-semibold  border-l-4 pl-2 border-red-500">
                 Place a bid on this project
               </h2>
-              <div className="space-y-1">
-                <p>Describe your proposal (min 100 characters)</p>
+              <div className="space-y-1 ">
+                <p className="text-gray-600">
+                  Describe your proposal (min 100 characters)
+                </p>
                 <textarea
                   name=""
                   id=""
@@ -140,9 +142,9 @@ const TaskDetails = () => {
               </button>
             </form>
           </div>
-          <div className="space-y-8">
-            <div className="px-4 py-5 rounded-lg bg-white shadow-md space-y-5 border border-gray-200">
-              <h2 className="font-semibold text-xl border-l-4 border-red-500 pl-2">
+          <div className="space-y-8 ">
+            <div className="px-4 py-5 rounded-lg bg-card shadow-md space-y-5 border border-gray-200">
+              <h2 className="text-foreground font-semibold text-xl border-l-4 border-red-500 pl-2">
                 About the client
               </h2>
               <div className="space-y-2">
@@ -162,7 +164,7 @@ const TaskDetails = () => {
               <h4 className="text-xl font-semibold ">Total job posted : 3</h4>
             </div>
             <div className="bg-white p-4 rounded-lg shadow-md max-w-md mx-auto border border-gray-200">
-              <h1 className="text-xl font-bold mb-4">
+              <h1 className="text-xl text-black font-bold mb-4">
                 How to write a winning bid
               </h1>
               <p className="text-gray-700 mb-4">
