@@ -10,7 +10,6 @@ const MyTasks = () => {
   const { email } = user;
   const [myTask, setMyTask] = useState([]);
 
-  // console.log(email);
   const fetchMyTask = async () => {
     try {
       setTaskLoading(true);
@@ -24,14 +23,12 @@ const MyTasks = () => {
       console.error(err);
     }
   };
-  // console.log(myTask);
 
   useEffect(() => {
     fetchMyTask();
   }, []);
 
   const handleDelete = (id) => {
-    // console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this",

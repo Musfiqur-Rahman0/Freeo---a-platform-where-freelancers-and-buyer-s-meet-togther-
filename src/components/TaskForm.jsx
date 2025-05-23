@@ -4,7 +4,6 @@ import { AuthContext } from "../context/AuthContext";
 const TaskForm = ({ handlerFunc, btnText, primaryText, taskdata }) => {
   const { user } = use(AuthContext);
 
-  console.log(taskdata);
   return (
     <form
       onSubmit={taskdata ? (e) => handlerFunc(e, taskdata._id) : handlerFunc}

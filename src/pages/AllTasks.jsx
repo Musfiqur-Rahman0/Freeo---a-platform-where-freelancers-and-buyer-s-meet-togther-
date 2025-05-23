@@ -3,7 +3,7 @@ import TaskCard from "../components/TaskCard";
 
 const AllTasks = () => {
   const allTask = useLoaderData();
-  // console.log(allTask);
+
   return (
     <div className="min-h-[calc(100vh-48px)]">
       <div className="max-w-7xl mx-auto space-y-2 px-3 pt-8 md:pt-20 pb-6 md:pb-10">

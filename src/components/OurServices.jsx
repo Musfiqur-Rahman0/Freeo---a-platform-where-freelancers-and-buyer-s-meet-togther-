@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import serviceImg from "../assets/our_services.webp";
+import { Link } from "react-router";
 
 const OurServices = () => {
   const features = [
@@ -45,9 +46,12 @@ const OurServices = () => {
               </div>
             ))}
           </div>
-          <button className="bg-black cursor-pointer text-white  font-semibold px-5 py-2 rounded-md">
+          <Link
+            to="/signup"
+            className="bg-black cursor-pointer text-white  font-semibold px-5 py-2 rounded-md"
+          >
             Join now
-          </button>
+          </Link>
         </div>
         <div className="flex items-center justify-center">
           <figure>

@@ -14,7 +14,6 @@ const AddTasks = () => {
     const formdata = new FormData(form);
     const { deadline, ...rest } = Object.fromEntries(formdata.entries());
 
-    // console.log(deadline);
     const newTask = {
       ...rest,
       deadline: new Date(deadline),
