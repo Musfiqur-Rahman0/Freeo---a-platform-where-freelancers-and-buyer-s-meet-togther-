@@ -50,8 +50,9 @@ const TaskDetails = () => {
             {task?.title}
           </h2>
           <div className="col-span-2  text-right text-xs md:text-xl flex justify-end items-center gap-2 ">
-            <p>Total Bids : </p>
-            <span className="font-bold">{bidsCount}</span>
+            <span className="font-bold">
+              You bid for {bidsCount} opportunities
+            </span>
           </div>
         </div>
 
