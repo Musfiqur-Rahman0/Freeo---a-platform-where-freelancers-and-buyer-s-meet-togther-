@@ -20,8 +20,6 @@ const Header = () => {
   const { logout } = useAuth();
   const { user, isloading } = use(AuthContext);
 
-  
-
   const handleLogout = () => {
     Swal.fire({
       title: "Are you sure?",
