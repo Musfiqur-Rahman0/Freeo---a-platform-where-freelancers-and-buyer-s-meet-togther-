@@ -12,6 +12,10 @@ import Errorpage from "../pages/Errorpage";
 import PrivetRoute from "./PrivetRoute";
 import TaskDetails from "../pages/TaskDetails";
 import UpdateTask from "../pages/UpdateTask";
+import DashboardLayout from "@/Layouts/DashboardLayout";
+import Dashboard from "@/pages/Dashboard/Dashboard";
+import Coin from "@/pages/AvailableCoin/Coin";
+import ProfilePage from "@/pages/Profile/ProfilePage";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +77,26 @@ const router = createBrowserRouter([
             <AddTasks />
           </PrivetRoute>
         ),
+      },
+      {
+        path: "/coin",
+        element: <Coin />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    Component: DashboardLayout,
+    hydrateFallbackElement: <Loading />,
+    errorElement: <Errorpage />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
       },
     ],
   },

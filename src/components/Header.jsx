@@ -9,6 +9,8 @@ import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import { Switch } from "./ui/switch";
 import { ModeToggle } from "./Mode/ModeToggle";
+import { linkWithCredential } from "firebase/auth";
+import Loading from "./Loading";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,6 +41,44 @@ const Header = () => {
       }
     });
   };
+
+  const linksWithoutUser = [
+    {
+      name: "Login",
+      pathName: "/login",
+    },
+    {
+      name: "Register",
+      pathName: "/signup",
+    },
+    {
+      name: "Join As a Developer",
+      pathName:
+        "https://github.com/Musfiqur-Rahman0/Freeo---a-platform-where-freelancers-and-buyer-s-meet-togther-.git",
+    },
+  ];
+
+  const linksWithUser = [
+    {
+      name: "Dashboard",
+      pathName: "/dashboard",
+    },
+    {
+      name: "Coin",
+      pathName: "/coin",
+    },
+    {
+      name: "Profile",
+      pathName: "/profile",
+    },
+    {
+      name: "Join As a Developer",
+      pathName:
+        "https://github.com/Musfiqur-Rahman0/Freeo---a-platform-where-freelancers-and-buyer-s-meet-togther-.git",
+    },
+  ];
+
+  console.log(isloading, user);
 
   return (
     <nav className="bg-background  fixed top-0 z-20 w-full border-b border-gray-200">
@@ -73,9 +113,9 @@ const Header = () => {
 
           {/* destop nevigation menu */}
           <div className="hidden sm:ml-6 sm:block">
-            {!isloading && (
+            {!isloading && !user ? (
               <div className="flex space-x-4">
-                {navigation.slice(0, 4).map((item) => (
+                {linksWithoutUser.map((item) => (
                   <NavLink
                     key={item.name}
                     to={item.pathName}
@@ -92,24 +132,7 @@ const Header = () => {
                   </NavLink>
                 ))}
 
-                {!user ? (
-                  navigation.slice(4).map((item, index) => (
-                    <NavLink
-                      key={index}
-                      to={item.pathName}
-                      aria-current={item.current ? "page" : undefined}
-                      className={({ isActive }) =>
-                        `${
-                          isActive
-                            ? "bg-gray-50 text-black font-bold"
-                            : "text-black hover:bg-gray-50 "
-                        } block rounded-md px-3 py-2 text-base font-medium`
-                      }
-                    >
-                      {item.name}
-                    </NavLink>
-                  ))
-                ) : (
+                {/*                 
                   <div
                     // onMouseEnter={() => setIsHovered(true)} //এইটা কাজ তো করতেছে বুট লগউত এ ক্লিক করা যায় নাহ কারন মাউস সরে গেলে লগউত বাটন হিদে হয়ে যায়
                     // onMouseLeave={() => setIsHovered(false)}
@@ -121,8 +144,8 @@ const Header = () => {
                       alt={user?.photoURL}
                       title={user?.photoURL}
                     />
-                  </div>
-                )}
+                  </div> */}
+
                 {isHovered && (
                   <div className=" text-white bg-slate-500 absolute -bottom-36 right-0 z-10 p-8 rounded-lg flex items-center justify-center gap-3 flex-col">
                     <p className="text-xl font-bold ">{user?.displayName}</p>
@@ -134,6 +157,25 @@ const Header = () => {
                     </button>
                   </div>
                 )}
+              </div>
+            ) : (
+              <div className="flex space-x-4">
+                {linksWithUser.map((item) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.pathName}
+                    aria-current={item.current ? "page" : undefined}
+                    className={({ isActive }) =>
+                      `${
+                        isActive
+                          ? "bg-card text-foreground font-bold border-b border-foreground"
+                          : "text-foreground hover:bg-card "
+                      } block  px-3 py-2  font-medium`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
               </div>
             )}
           </div>
